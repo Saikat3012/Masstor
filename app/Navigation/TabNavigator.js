@@ -72,7 +72,7 @@ const TabNavigator = () => {
                 options={{
                     // tabBarLabel: 'My School',
                     tabBarIcon: ({ color, focused }) => (
-                        <TabSchoolButton />
+                        <TabSchoolButton focused={focused}/>
                     ),
                 }} />
             <Tab.Screen

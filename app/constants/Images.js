@@ -111,6 +111,7 @@ const Images = {
 
     //tab Icon
     tabSchool: require('assets/TabIcon/tabSchool.png'),
+    dactiveTabSchool: require('assets/TabIcon/dactiveTabSchool.png'),
     homeTab: require('assets/TabIcon/homeTab.png'),
     tabuser: require('assets/TabIcon/tabuser.png'),
     dactivehome: require('assets/TabIcon/dactivehome.png'),

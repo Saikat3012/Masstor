@@ -5,14 +5,14 @@ import Colors from 'constants/Colors'
 
 const TabSchoolButton = (props) => {
     const {
-
+        focused
     } = props;
 
     return (
         <View
             style={{
-                height: 81,
-                width: 81,
+                height: 78,
+                width: 78,
                 borderRadius: 500,
                 backgroundColor: Colors.violet,
                 justifyContent: 'center',
@@ -33,7 +33,7 @@ const TabSchoolButton = (props) => {
 
             }}  ></View> */}
 
-            <View style={{
+            {/* <View style={{
                 height: 48,
                 width: 48,
                 borderRadius: 48 / 2,
@@ -41,11 +41,11 @@ const TabSchoolButton = (props) => {
                 justifyContent: 'center',
                 alignItems: 'center',
 
-            }}>
+            }}> */}
 
-                <Image source={Images.tabSchool} style={{ height: 30, width: 30, resizeMode: 'contain' }} />
+                <Image source={ focused ? Images.tabSchool : Images.dactiveTabSchool } style={{ height: 30, width: 30, resizeMode: 'contain' }} />
 
-            </View>
+            {/* </View> */}
         </View>
     );
 };
