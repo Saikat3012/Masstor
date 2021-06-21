@@ -124,7 +124,7 @@ const Login = ({ navigation, props }) => {
                                         }}
                                     />
 
-                                    <RLText
+                                    {/* <RLText
                                         text={BaseText.Explore}
                                         style={{
                                             color: Colors.gray,
@@ -132,7 +132,7 @@ const Login = ({ navigation, props }) => {
                                             fontFamily: ENV.mfontFamilyBold
                                         }}
                                         onPress={() => navigation.navigate('Home')}
-                                    />
+                                    /> */}
                                 </View>
                                 <View style={{
                                     width: BaseStyle.DEVICE_WIDTH / 100 * 80,
