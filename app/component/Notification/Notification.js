@@ -34,12 +34,12 @@ import {
 
 const Notification = ({ navigation, props }) => {
     const NotificationDataList = [
-        { id: 1, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now' },
-        { id: 2, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now' },
-        { id: 3, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now' },
-        { id: 4, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now' },
-        { id: 5, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now' },
-        { id: 5, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now' },
+        { id: 1, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now', unReaded : false },
+        { id: 2, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now', unReaded : true },
+        { id: 3, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now', unReaded : false },
+        { id: 4, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now', unReaded : true },
+        { id: 5, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now', unReaded : false },
+        { id: 5, title: 'Thanks for downloading masstor!', description: 'Check out schools near by your location by using our simplified tools.', time: 'Now', unReaded : false },
     ]
 
     const [isSwitch, setIsSwitch] = useState(false)
@@ -59,6 +59,7 @@ const Notification = ({ navigation, props }) => {
                 title={item.title}
                 description={item.description}
                 time={item.time}
+                unReaded = {item.unReaded}
             />
         )
     }

@@ -13,11 +13,18 @@ const RLNotification = (props) => {
         marginTop,
         title,
         description,
-        time
+        time,
+        unReaded
     } = props;
 
+    const _handleOnPress = () => {
+        alert(title)
+    }
+
     return (
-        <TouchableWithoutFeedback  >
+        <TouchableWithoutFeedback
+            onPress={_handleOnPress}
+        >
             <View style={{
                 alignSelf: 'center',
                 marginBottom: 12,
@@ -37,7 +44,7 @@ const RLNotification = (props) => {
                 {/* <View style={{ backgroundColor: Colors.pink, height: 10, width: 10, borderRadius: 20 / 2, alignSelf: 'center' }}></View> */}
                 <Text style={{ paddingLeft: 28, color: Colors.gray7, fontSize: 14, fontFamily: ENV.mpolisfontFamilySemiBold }}>{title}</Text>
                 <View style={{ flexDirection: 'row', }}>
-                    <View style={{ backgroundColor: Colors.pink, height: 10, width: 10, borderRadius: 10 / 2, marginLeft: 8, marginTop: 4 }}></View>
+                    <View style={{ backgroundColor: unReaded ? Colors.pink : Colors.white, height: 10, width: 10, borderRadius: 10 / 2, marginLeft: 8, marginTop: 4 }}></View>
                     <Text style={{ paddingLeft: 10, lineHeight: 20, color: Colors.gray7, fontSize: 14, fontFamily: ENV.mpolisfontFamilySemiBold }}>{description}</Text>
                 </View>
                 <Text style={{ paddingTop: 2, paddingLeft: 28, color: Colors.gray8, fontSize: 12, fontFamily: ENV.mpolisfontFamilySemiBold }}>{time}</Text>
