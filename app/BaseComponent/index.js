@@ -36,6 +36,7 @@ import RLAutoComplete from 'common/RLAutoComplete'
 import RLNotification from 'common/RLNotification'
 import RLImageTextList from 'common/RLImageTextList'
 import RLCampusList from 'common/RLCampusList'
+import RLChatItem from 'common/RLChatItem'
 
 export {   // export default
     RLText,
@@ -75,5 +76,6 @@ export {   // export default
     RLAutoComplete,
     RLNotification,
     RLImageTextList,
-    RLCampusList
+    RLCampusList,
+    RLChatItem
 };

@@ -25,6 +25,7 @@ import Tooltip from 'react-native-walkthrough-tooltip';
 
 const RLHeader = (props) => {
     const {
+        isLeftImgNotiCal,
         isBothImageHeader,
         leftImg,//1
         rightImg,//1
@@ -446,6 +447,68 @@ const RLHeader = (props) => {
             </View>
         );
     }
+    const _renderLeftImgNotiCal = () => {
+        return(
+            <View style={{ backgroundColor: backgroundColor }}>
+                <View style={{ width: BaseStyle.DEVICE_WIDTH / 100 * 90, alignSelf: 'center', flexDirection: 'row', paddingVertical: 20, alignItems:'center' }}>
+                    <TouchableOpacity onPress={onpressleft}>
+                            <Image
+                                source={leftImg}
+                                style={{
+                                    height: 20,
+                                    width: 20,
+                                    resizeMode: 'contain',
+                                    marginRight : 10
+                                }}
+                            />
+                        </TouchableOpacity>
+                    <View style={{ width: BaseStyle.DEVICE_WIDTH / 100 * 53, flexDirection: 'row', alignItems: 'center' }}>
+                        <Text numberOfLines={1} style={{
+                            width: BaseStyle.DEVICE_WIDTH / 100 * 45,
+                            fontSize: BaseStyle.DEVICE_WIDTH * 0.04, fontFamily: ENV.mfontFamilyBold, color: Colors.white,
+                        }}>{title}</Text>
+                    </View>
+
+                    <View style={{ width: BaseStyle.DEVICE_WIDTH / 100 * 40, alignItems: 'flex-end', justifyContent: 'center',flexDirection:'row', }}>
+                        {isSearch &&
+                            <TouchableOpacity onPress={onpresssearch}>
+                                <Image
+                                    source={searchImg}
+                                    style={{
+                                        height: 20,
+                                        width: 20, resizeMode: 'contain'
+                                    }}
+                                />
+                            </TouchableOpacity>
+                        }
+                        {isCalendar &&
+                            <TouchableOpacity onPress={onpresscal} style={{marginHorizontal:BaseStyle.DEVICE_WIDTH/100*4,flexDirection:'row',alignItems:'flex-end',}}>
+                                <View>
+                                    <Text style={{fontFamily:ENV.mpolisfontFamilyMedium,fontSize:10,color:Colors.white,textAlign:'right',}}>{dateTitle}</Text>
+                                    <Text style={{fontFamily:ENV.mpolisfontFamilyBold,fontSize:12,color:Colors.white,textAlign:'right',}}>{date}</Text>
+                                </View>
+                                <View>
+                                    <FontAnt name={'caretdown'} style={{color:Colors.white,marginLeft:BaseStyle.DEVICE_WIDTH/100*1,fontSize:10,marginBottom:2,}}/>
+                                </View>
+                            </TouchableOpacity>
+                        }
+                        {isNoti &&
+                            <TouchableOpacity onPress={onpressnoti}>
+                                <Image
+                                    source={notiImg}
+                                    style={{
+                                        height: 20,
+                                        width: 20, resizeMode: 'contain',
+                                        marginRight : 15
+                                    }}
+                                />
+                            </TouchableOpacity>
+                        }
+                    </View>
+                </View>
+            </View>
+        );
+    }
 
     //Header with dropdown
     const _renderDropdownHeader = () => {
@@ -547,6 +610,7 @@ const RLHeader = (props) => {
             {isCampusSwitchHeader && _renderCampusSwitchHeader()}
             {isNotiCal && _renderNotiCal()}
             {isDrop && _renderDropdownHeader()}
+            {isLeftImgNotiCal && _renderLeftImgNotiCal()}
         </View>
     );
 };
