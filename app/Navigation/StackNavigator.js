@@ -31,13 +31,14 @@ import FeesPaymentMethod from "../component/EntranceTest/FeesPaymentMethod";
 import Notification from "component/Notification/Notification";
 import Campus from "component/Campus/Campus";
 import Post from "component/Campus/Post";
+import SchoolMeeting from "../component/Campus/Options/SchoolMeeting";
 
 const Stack = createStackNavigator();
 
 const BeforeLoginStackNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName={'SplashScreen'}
+            initialRouteName={'SchoolMeeting'}
             headerMode={false}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
             <Stack.Screen name="Login" component={Login} />
@@ -68,6 +69,7 @@ const BeforeLoginStackNavigator = () => {
             <Stack.Screen name="Notification" component={Notification} />
             <Stack.Screen name="Campus" component={Campus} />
             <Stack.Screen name="Post" component={Post} />
+            <Stack.Screen name="SchoolMeeting" component={SchoolMeeting} />
         </Stack.Navigator>
     );
 }
