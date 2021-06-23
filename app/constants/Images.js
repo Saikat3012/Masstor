@@ -152,6 +152,9 @@ const Images = {
     tlResearchImage: require('assets/StaticIcon/tlResearch.png'),
     tlSearchImage: require('assets/StaticIcon/tlSearch.png'),
     tlLineImage: require('assets/StaticIcon/simplifiedProcessLine.png'),
+    clapping: require('assets/CommonIcon/clapping.png'),
+    Group59515: require('assets/CommonIcon/Group59515.png'),
+    Group59516: require('assets/CommonIcon/Group59516.png'),
 
 
     splasScreenGif: require('assets/StaticIcon/splash_gif.gif'),

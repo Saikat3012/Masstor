@@ -12,6 +12,8 @@ import {
     TouchableOpacity,
     ImageBackground
 } from "react-native";
+import { Calendar, CalendarList, Agenda } from "react-native-calendars";
+
 import IconEvilIcons from 'react-native-vector-icons/dist/EvilIcons';
 import IconFeather from 'react-native-vector-icons/dist/Feather';
 import IconMaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
@@ -54,7 +56,9 @@ const SchoolMeeting = ({ navigation, props }) => {
     const [liveUsers, setLiveUsers] = useState( 100 )
     const [selectedMenu, setSelectedMenu] = useState( 3 )
     const [zoomedOut, setZoomedOut] = useState( true )
-    const [userId,setUserId] = useState(101)
+    const [userId, setUserId] = useState( 101 )
+    const [message, setMessage] = useState( '' )
+    const [calendarOpen,setCalenderOpen] = useState(false)
     
     const chats = [
         
@@ -127,7 +131,10 @@ const SchoolMeeting = ({ navigation, props }) => {
                 notiImg={Images.headerNoti}
                 onpressnoti={()=>{}}
                 // isSearch={true}
-                onpresssearch={()=>{}}
+                onpresssearch={() => { }}
+                onpresscal={() => {
+                    setCalenderOpen(!calendarOpen)
+                }}
                 isCalendar={true}
                 dateTitle={'Today'}
                 date={moment().format('DD MMM')}
@@ -160,33 +167,62 @@ const SchoolMeeting = ({ navigation, props }) => {
                     <ScrollView bounces={false}
                         contentContainerStyle={{ flexGrow: 1 }}>
                         {/* Title View */}
+                        {calendarOpen ? <View style={{
+                            height:BaseStyle.DEVICE_HEIGHT * 0.42
+                        }}>
+                            <Calendar
+                                markingType={"period"}
+                                markedDates={{
+                                    "2012-05-15": { marked: true, dotColor: "#50cebb" },
+                                    "2012-05-16": { marked: true, dotColor: "#50cebb" },
+                                    "2012-05-21": {
+                                        startingDay: true,
+                                        color: "#50cebb",
+                                        textColor: "white",
+                                    },
+                                    "2012-05-22": { color: "#70d7c7", textColor: "white" },
+                                    "2012-05-23": {
+                                        color: "#70d7c7",
+                                        textColor: "white",
+                                        marked: true,
+                                        dotColor: "white",
+                                    },
+                                    "2012-05-24": { color: "#70d7c7", textColor: "white" },
+                                    "2012-05-25": {
+                                        endingDay: true,
+                                        color: "#50cebb",
+                                        textColor: "white",
+                                    },
+                                }}
+                            />
+                        </View> :
                         
-                        <View style={styles.meetingView}>
+                            <View style={styles.meetingView}>
                             
-                            <ImageBackground
-                                source={Images.schoolImage}
-                                style={styles.meetingImage }
+                                <ImageBackground
+                                    source={Images.schoolImage}
+                                    style={styles.meetingImage}
                                 >
                                     <View style={styles.liveElement}>
-                                    <Text style={{
-                                        alignSelf: 'center',
-                                        fontSize: 8,
-                                        fontFamily: ENV.mfontFamilyBold,
-                                        color: Colors.white
-                                    }}>Live</Text>
-                                </View>
-                                <View style={styles.meetingBottom}>
-                                    <View style ={{flexDirection:'row',alignItems:'center',marginLeft:21}}>
-                                        <IconEvilIcons name='eye' size={25} color={Colors.white}/>
-                                        <Text style ={{fontSize:10,color:Colors.white}}>{liveUsers}</Text>
+                                        <Text style={{
+                                            alignSelf: 'center',
+                                            fontSize: 8,
+                                            fontFamily: ENV.mfontFamilyBold,
+                                            color: Colors.white
+                                        }}>Live</Text>
                                     </View>
-                                    <View style={{marginRight:15}}>
-                                        {zoomedOut ? <IconMaterialIcons name='zoom-out-map' size={22} color={Colors.white} /> :
-                                            <IconFeather name='minimize' size={22} color={Colors.white} />}
+                                    <View style={styles.meetingBottom}>
+                                        <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 21 }}>
+                                            <IconEvilIcons name='eye' size={25} color={Colors.white} />
+                                            <Text style={{ fontSize: 10, color: Colors.white }}>{liveUsers}</Text>
+                                        </View>
+                                        <View style={{ marginRight: 15 }}>
+                                            {zoomedOut ? <IconMaterialIcons name='zoom-out-map' size={22} color={Colors.white} /> :
+                                                <IconFeather name='minimize' size={22} color={Colors.white} />}
+                                        </View>
                                     </View>
-                                </View>
                                 </ImageBackground>
-                        </View>
+                            </View>}
                         
                         <View style ={styles.bottomSection}>
                             <View style={styles.meetingInformation}>
@@ -218,7 +254,7 @@ const SchoolMeeting = ({ navigation, props }) => {
                                     Lorem ipsum dolor sit amet, consectetuer adipiscin g elit, sed diam nonummy nibh euis mod tincidunt ut laoreet dolore magna aliqua
                                 </Text>
                             </View>
-                            <View style={{marginHorizontal:30,marginTop:20}}>
+                            <View style={{ marginHorizontal: 30, marginTop: 20, height: BaseStyle.DEVICE_HEIGHT * 0.37 }}>
                                 <FlatList
                                     data={chats}
                                     renderItem={({ item,index }) => (
@@ -226,6 +262,39 @@ const SchoolMeeting = ({ navigation, props }) => {
                                     )}
                                     keyExtractor={item => item.id}
                                 />
+                            </View>
+                            <View style={{
+                                height: BaseStyle.DEVICE_HEIGHT * 0.08,
+                                width: BaseStyle.DEVICE_WIDTH,
+                                flexDirection: 'row',
+                                justifyContent: 'space-evenly',
+                                alignItems: 'center',
+                                position: 'absolute',
+                                bottom: 15,
+                            }}>
+                                <RLTextInput
+                                    PlainTextInput
+                                    value = {message}
+                                    onEditTextField={(value,type)=>{
+                                        setMessage(value);
+                                    }}
+                                    borderRadius={28}
+                                    placeholder={'Write here.'}
+                                    onSubmitEditing={(nextRef,refKey)=>{}}
+                                    textInputViewWidth={BaseStyle.DEVICE_WIDTH * 0.8}
+                                    textInputWidth={BaseStyle.DEVICE_WIDTH * 0.78}
+                                    plainTextInputStyle={{
+
+                                    }}
+                                />
+                                <TouchableOpacity
+                                    onPress={() => {
+                                        console.log(message)
+                                    }}
+                                    disabled={!message.length > 0}
+                                >
+                                    <Image source={Images.clapping} style={{height:30,width:30, marginRight:5}} />
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </ScrollView>
@@ -244,10 +313,11 @@ export default connect( select )( SchoolMeeting );
 
 const styles = StyleSheet.create( {
     meetingView: {
-        marginTop : 1
+        marginTop : 1,
+        
     },
     meetingImage: {
-        height: 218,
+        height: BaseStyle.DEVICE_HEIGHT * 0.25,
         width: BaseStyle.DEVICE_WIDTH * 0.99,
         alignSelf:'center'
     },
@@ -302,7 +372,7 @@ const styles = StyleSheet.create( {
 
         elevation: 4,
         width: BaseStyle.DEVICE_WIDTH,
-        height: 90,
+        height: BaseStyle.DEVICE_HEIGHT * 0.1,
         flexWrap: 'wrap',
         flexDirection: 'row',
         alignItems: 'center',

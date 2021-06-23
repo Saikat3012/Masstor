@@ -32,13 +32,14 @@ import Notification from "component/Notification/Notification";
 import Campus from "component/Campus/Campus";
 import Post from "component/Campus/Post";
 import SchoolMeeting from "../component/Campus/Options/SchoolMeeting";
+import TimeTable from "../component/Campus/Options/TimeTable";
 
 const Stack = createStackNavigator();
 
 const BeforeLoginStackNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName={'SchoolMeeting'}
+            initialRouteName={'TimeTable'}
             headerMode={false}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
             <Stack.Screen name="Login" component={Login} />
@@ -70,6 +71,7 @@ const BeforeLoginStackNavigator = () => {
             <Stack.Screen name="Campus" component={Campus} />
             <Stack.Screen name="Post" component={Post} />
             <Stack.Screen name="SchoolMeeting" component={SchoolMeeting} />
+            <Stack.Screen name="TimeTable" component={TimeTable} />
         </Stack.Navigator>
     );
 }
