@@ -255,6 +255,47 @@ const Exams = ({ navigation, props }) => {
                                 }}
                                 onDayPress={( day ) => { console.log( 'selected day', day ) }}
                             />
+                            <View style={{
+                                flexDirection: 'row',
+                                alignSelf: 'flex-end',
+                                marginEnd: 20
+                            }}>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                    marginEnd: 15
+                                    
+                                }}>
+                                    <View style={{
+                                        height: 6,
+                                        width: 6,
+                                        backgroundColor: '#04F192',
+                                        borderRadius: 10,
+                                        marginRight:4
+                                    }} />
+                                    <Text style={{
+                                        color: '#7C7D7E',
+                                        fontSize: 8
+                                    }}>Holidays</Text>
+                                </View>
+                                <View style={{
+                                    flexDirection: 'row',
+                                    alignItems: 'center'
+                                }}>
+                                    <View style={{
+                                        height: 6,
+                                        width: 6,
+                                        backgroundColor: '#04F192',
+                                        borderRadius: 10,
+                                        marginRight:4
+                                    }} />
+                                    <Text style={{
+                                        color: '#00BBFF',
+                                        fontSize: 8
+                                    }}>Exams</Text>
+                                </View>
+
+                            </View>
                         </View>}
                         {examList.length > 0 ? <View>
                             {todayExam && <Text style={{

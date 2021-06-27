@@ -35,13 +35,14 @@ import SchoolMeeting from "../component/Campus/Options/SchoolMeeting";
 import TimeTable from "../component/Campus/Options/TimeTable";
 import Exams from "../component/Campus/Options/Exams";
 import Events from "../component/Campus/Options/Events";
+import Chat from "../component/Chat/Chat";
 
 const Stack = createStackNavigator();
 
 const BeforeLoginStackNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName={'Events'}
+            initialRouteName={'Chat'}
             headerMode={false}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
             <Stack.Screen name="Login" component={Login} />
@@ -76,6 +77,7 @@ const BeforeLoginStackNavigator = () => {
             <Stack.Screen name="TimeTable" component={TimeTable} />
             <Stack.Screen name="Exams" component={Exams} />
             <Stack.Screen name="Events" component={Events} />
+            <Stack.Screen name="Chat" component={Chat} />
         </Stack.Navigator>
     );
 }
