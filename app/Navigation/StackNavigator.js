@@ -36,13 +36,14 @@ import TimeTable from "../component/Campus/Options/TimeTable";
 import Exams from "../component/Campus/Options/Exams";
 import Events from "../component/Campus/Options/Events";
 import Chat from "../component/Chat/Chat";
+import ChatScreen from "../component/Chat/ChatScreen";
 
 const Stack = createStackNavigator();
 
 const BeforeLoginStackNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName={'Chat'}
+            initialRouteName={'ChatScreen'}
             headerMode={false}>
             <Stack.Screen name="SplashScreen" component={SplashScreen} />
             <Stack.Screen name="Login" component={Login} />
@@ -78,6 +79,7 @@ const BeforeLoginStackNavigator = () => {
             <Stack.Screen name="Exams" component={Exams} />
             <Stack.Screen name="Events" component={Events} />
             <Stack.Screen name="Chat" component={Chat} />
+            <Stack.Screen name="ChatScreen" component={ChatScreen} />
         </Stack.Navigator>
     );
 }

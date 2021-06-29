@@ -59,7 +59,7 @@ const monthNames = [
 ];
 
 
-const Exams = ({ navigation, props }) => {
+const Chat = ({ navigation, props }) => {
 
     const [liveUsers, setLiveUsers] = useState( 100 )
     const [selectedMenu, setSelectedMenu] = useState( 3 )
@@ -68,7 +68,8 @@ const Exams = ({ navigation, props }) => {
     const [message, setMessage] = useState( '' )
     const [calendarOpen, setCalenderOpen] = useState( false )
     const [todayExam, setTodayExam] = useState( false )
-    const [upComminExam, setUpCommingExam] = useState(false)
+    const [upComminExam, setUpCommingExam] = useState( false )
+    
     
     const today = new Date()
 
@@ -260,7 +261,7 @@ const Exams = ({ navigation, props }) => {
 const select = (store) => {
     return store;
 }
-export default connect( select )( Exams );
+export default connect( select )( Chat );
 
 const styles = StyleSheet.create( {
     cardContainer: {

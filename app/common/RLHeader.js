@@ -67,6 +67,12 @@ const RLHeader = (props) => {
         isDrop,
         soption,
         filter,
+        isGroup,
+        groupName,
+        leftDownImageStyle,
+        groupCount,
+        groupButtonPressed,
+        leftDownImage
     } = props;
 
     const [toolTipVisibleFilter, setToolTipVisibleFilter] = useState(false);
@@ -133,6 +139,53 @@ const RLHeader = (props) => {
                             width: BaseStyle.DEVICE_WIDTH / 100 * 66,
                             fontSize: 17, fontFamily: ENV.mfontFamilyBold, color: Colors.white, paddingLeft: 10,
                         }}>{title}</Text>
+                    </View>
+
+                    <View style={{ width: BaseStyle.DEVICE_WIDTH / 100 * 15, alignItems: 'flex-end', justifyContent: 'center' }}>
+                        <TouchableOpacity onPress={onpressright}>
+                            <Image
+                                source={rightImg}
+                                style={{
+                                    height: 18,
+                                    width: 18, resizeMode: 'contain'
+                                }}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+        )
+    }
+    const _renderGroupTextHeader = () => {
+        return (
+            <View style={{ backgroundColor: backgroundColor }}>
+                <View style={{ width: BaseStyle.DEVICE_WIDTH / 100 * 90, alignSelf: 'center', flexDirection: 'row', paddingVertical: 20 }}>
+                    <View style={{ width: BaseStyle.DEVICE_WIDTH / 100 * 75, flexDirection: 'row', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={onpressleft}>
+                            <Image
+                                source={leftImg}
+                                style={{
+                                    height: 28,
+                                    width: 28,
+                                    resizeMode: 'contain',
+                                }}
+                            />
+                        </TouchableOpacity>
+                        <View>
+                            <Text numberOfLines={1} style={{
+                                width: BaseStyle.DEVICE_WIDTH / 100 * 66,
+                                fontSize: 15, fontFamily: ENV.mfontFamilyBold, color: Colors.white, paddingLeft: 10,
+                            }}>{title}</Text>
+                            <TouchableOpacity style={{ alignItems: 'center', flexDirection: 'row' }}
+                                onPress={groupButtonPressed}
+                            >
+                                <Image source={Images.dactivetabuser} style={{height:18,width:12,resizeMode:'contain'} }/>
+                                <Text style={{
+                                fontSize: 11, fontFamily: ENV.mfontFamilyBold, color: Colors.white,marginLeft:8
+                                }}>{`${ groupCount } Students`}</Text>
+                                <Image source={leftDownImage} style={leftDownImageStyle }/>
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                     <View style={{ width: BaseStyle.DEVICE_WIDTH / 100 * 15, alignItems: 'flex-end', justifyContent: 'center' }}>
@@ -611,6 +664,7 @@ const RLHeader = (props) => {
             {isNotiCal && _renderNotiCal()}
             {isDrop && _renderDropdownHeader()}
             {isLeftImgNotiCal && _renderLeftImgNotiCal()}
+            {isGroup && _renderGroupTextHeader()}
         </View>
     );
 };
