@@ -37,6 +37,7 @@ import Tooltip from 'react-native-walkthrough-tooltip';
 import LottieView from 'lottie-react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { consoleLog } from 'utils/console';
+import GroupMembers from "./GroupMembers";
 import moment from 'moment';
 import {
     RLText,

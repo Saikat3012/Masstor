@@ -59,7 +59,7 @@ import {
 import { color } from "react-native-reanimated";
 import { TextInput } from "react-native-gesture-handler";
 
-const GroupMembers = () => {
+const GroupMembers = ({props}) => {
     return (
         <Text>Saikat</Text>
     )
