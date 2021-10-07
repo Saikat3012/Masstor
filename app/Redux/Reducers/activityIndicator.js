@@ -7,7 +7,7 @@ const initialState = {
     lshow: false,
 };
 const activityIndicator = (state = initialState, action) => {
-    // consoleLog("ji", action.type);
+    // consoleLog("Console Check", action.type);
     switch (action.type) {
         case 'SHOW_ACTIVITY_INDICATOR':
             return { show: true, text: action.text };
