@@ -43,7 +43,7 @@ const Section = ({children, title}): Node => {
         style={[
           styles.sectionDescription,
           {
-            color: isDarkMode ? Colors.light : Colors.dark,
+            color: isDarkMode ? Colors.dark : Colors.light,
           },
         ]}>
         {children}
